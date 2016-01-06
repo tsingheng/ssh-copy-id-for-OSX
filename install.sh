@@ -1,5 +1,5 @@
 #!/bin/sh
-# Installs ssh-copy-id into /usr/local/bin
+# Installs ssh-copy-id into /usr/bin
 
 if [[ $(id -u) != 0 ]]; then
 	if command -v sudo >/dev/null 2>&1; then
@@ -11,9 +11,9 @@ if [[ $(id -u) != 0 ]]; then
 fi
 
 if git ls-files >& /dev/null &&  [[ -f ssh-copy-id.sh ]]; then
-	$SUDO cp ssh-copy-id.sh /usr/local/bin/ssh-copy-id || { echo "Failed to install ssh-copy-id into /usr/local/bin."; exit 1; }
+	$SUDO cp ssh-copy-id.sh /usr/bin/ssh-copy-id || { echo "Failed to install ssh-copy-id into /usr/bin."; exit 1; }
 else
-	$SUDO curl -L https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o /usr/local/bin/ssh-copy-id || { echo "Failed to install ssh-copy-id into /usr/local/bin."; exit 1; }
-	$SUDO chmod +x /usr/local/bin/ssh-copy-id || { echo "Failed to install ssh-copy-id into /usr/local/bin."; exit 1; }
+	$SUDO curl -L https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o /usr/bin/ssh-copy-id || { echo "Failed to install ssh-copy-id into /usr/bin."; exit 1; }
+	$SUDO chmod +x /usr/bin/ssh-copy-id || { echo "Failed to install ssh-copy-id into /usr/bin."; exit 1; }
 fi
-echo "Installed ssh-copy-id into /usr/local/bin."; exit 0;
+echo "Installed ssh-copy-id into /usr/bin."; exit 0;
